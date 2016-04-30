@@ -1,6 +1,3 @@
-def testing():
-    print "test"
-
 class GameObject:
 
     def __init__(self, **kwargs):
