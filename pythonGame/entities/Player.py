@@ -1,4 +1,4 @@
-import Creature
+from Creature import Creature
 import pygame
 import pygame.locals
 
@@ -20,11 +20,11 @@ class InputHandler():
         }
 
     def update(self):
-        for key, keyCode in self.keys:
+        for key, keyCode in self.keys.iteritems():
             self.keyPressed[key] = pygame.key.get_pressed()[keyCode]
 
 
-class Player(GameObject):
+class Player(Creature):
     def __init__(self, **kwargs):
         Creature.__init__(self, kwargs)
 
