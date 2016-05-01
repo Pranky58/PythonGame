@@ -1,1 +1,1 @@
-# python_game
+# Python Game which I am doing as my school project for learning python

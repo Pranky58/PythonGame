@@ -10,9 +10,5 @@ class Game:
         self.background = BACKGROUND_COLOR
 
     def handleEvents(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            elif event.type == KEYDOWN:
-                print "TESTED"
+       pass
                 

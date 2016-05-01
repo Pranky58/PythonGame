@@ -21,9 +21,14 @@ class InputHandler():
 
     def update(self):
         for key, keyCode in self.keys:
-            self.keyPressed[key] = pygame.key.get_pressed()[keyCode] is not 0
+            self.keyPressed[key] = pygame.key.get_pressed()[keyCode]
 
 
 class Player(GameObject):
     def __init__(self, **kwargs):
         Creature.__init__(self, kwargs)
+
+    def movement(self, input):
+        pass
+
+

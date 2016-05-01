@@ -27,6 +27,12 @@ class GameObject:
     def render(self, screen):
         screen.blit(self.imgRender, self.objectRect)
 
+    def accelerateHorizontaly(self, acceleration):
+        self.xAcceleration += acceleration
+
+    def accelerateVerticaly(self, acceleration):
+        self.yAcceleration += acceleration
+
     def move(self, time):
         self.x += self.xAcceleration * time
         self.y += self.yAcceleration * time
