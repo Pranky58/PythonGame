@@ -7,8 +7,8 @@ class GameObject:
         self.y = kwargs.get('y', None)
         self.z = kwargs.get('z', None)
 
-        self.xDir = 0
-        self.yDir = 0
+        self.xAcceleration = 0
+        self.yAcceleration = 0
 
         self.widht = kwargs.get('width', None)
         self.height = kwargs.get('height', None)
@@ -27,3 +27,6 @@ class GameObject:
     def render(self, screen):
         screen.blit(self.imgRender, self.objectRect)
 
+    def move(self, time):
+        self.x += self.xAcceleration * time
+        self.y += self.yAcceleration * time
