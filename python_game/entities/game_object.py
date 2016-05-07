@@ -48,11 +48,11 @@ class GameObject:
             object_a.grounded = True
 
         if object_a.x_velocity > 0 and object_a.y + object_a.height > object_b.y and object_a.y < object_b.y + object_b.height:
-            object_a.x = object_b.x - object_a.width - 0.1
+            object_a.x = object_b.x - object_a.width
             object_a.x_velocity = 0
 
         if object_a.x_velocity < 0 and object_a.y + object_a.height > object_b.y and object_a.y < object_b.y + object_b.height:
-            object_a.x = object_b.x + object_b.width + 0.1
+            object_a.x = object_b.x + object_b.width
             object_a.x_velocity = 0
 
     def handle_collision(object_a, object_b):
