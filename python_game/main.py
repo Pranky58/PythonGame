@@ -9,6 +9,6 @@ class Game:
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.background = BACKGROUND_COLOR
 
-    def handleEvents(self):
+    def handle_events(self):
        pass
                 
