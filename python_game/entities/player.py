@@ -29,7 +29,7 @@ class InputHandler():
 
 class Player(Creature):
     def __init__(self, **kwargs):
-        Creature.__init__(self, **kwargs)
+        Creature.__init__(self, movable = True, **kwargs)
         self.moves = {
             'Stop': self.set_velocity_xy,
             'Jump': self.set_vertical_velocity,
@@ -42,8 +42,6 @@ class Player(Creature):
     def movement(self, input):
         if input.is_pressed('key_up'):
             self.moves['Jump'](-1.2)
-        else:
-            self.moves['Fall'](0)
 
         if input.is_pressed('key_left') == input.is_pressed('key_right'):
             self.moves['Stop_horizontaly'](0)
