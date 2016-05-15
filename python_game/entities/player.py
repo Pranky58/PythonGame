@@ -40,8 +40,8 @@ class Player(Creature):
         }
 
     def movement(self, input):
-        if input.is_pressed('key_up'):
-            self.moves['Jump'](-0.4)
+        if input.is_pressed('key_up') and self.y_velocity == 0:
+            self.moves['Jump'](-0.75)
 
         if input.is_pressed('key_left') is input.is_pressed('key_right'):
             self.moves['Stop_horizontaly'](0)

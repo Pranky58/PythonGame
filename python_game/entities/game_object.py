@@ -53,7 +53,7 @@ class GameObject:
         if object_a.y < object_b.y + object_b.height and object_a.y > object_b.y and \
            object_a.x + object_a.width >= object_b.x and object_a.x <= object_b.x + object_b.width:
 
-            object_a.y = object_b.y + object_b.height * 1.5
+            object_a.y = object_b.y + object_b.height + 0.04
             object_a.y_velocity = 0
 
         #horizontal collision
