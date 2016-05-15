@@ -42,16 +42,30 @@ class GameObject:
         self.y_velocity = velocity[0]
 
     def immovable_response(object_a, object_b):
-        if object_a.y_velocity > 0 and object_a.x + object_a.width > object_b.x and object_a.x < object_b.x + object_b.width:
+        #vertical collision
+        if object_a.y + object_a.height > object_b.y and object_a.y < object_b.y and \
+           object_a.x + object_a.width >= object_b.x and object_a.x <= object_b.x + object_b.width:
+
             object_a.y = object_b.y - object_a.height
             object_a.y_velocity = 0
             object_a.grounded = True
 
-        if object_a.x_velocity > 0 and object_a.y + object_a.height > object_b.y and object_a.y < object_b.y + object_b.height:
+        if object_a.y < object_b.y + object_b.height and object_a.y > object_b.y and \
+           object_a.x + object_a.width >= object_b.x and object_a.x <= object_b.x + object_b.width:
+
+            object_a.y = object_b.y + object_b.height * 1.5
+            object_a.y_velocity = 0
+
+        #horizontal collision
+        if object_a.x + object_a.width > object_b.x and object_a.x < object_b.x and \
+           object_a.y + object_a.height > object_b.y and object_a.y < object_b.y + object_b.height:
+
             object_a.x = object_b.x - object_a.width
             object_a.x_velocity = 0
 
-        if object_a.x_velocity < 0 and object_a.y + object_a.height > object_b.y and object_a.y < object_b.y + object_b.height:
+        if object_a.x < object_b.x + object_b.width and object_a.x > object_b.x and \
+           object_a.y + object_a.height > object_b.y and object_a.y < object_b.y + object_b.height:
+
             object_a.x = object_b.x + object_b.width
             object_a.x_velocity = 0
 
@@ -62,16 +76,14 @@ class GameObject:
             object_a, object_b = object_b, object_a
             object_a.immovable_response(object_b)
 
-    def collision(object_a, object_b):
-        return object_a.x + object_a.width >= object_b.x and object_a.x <= object_b.x + object_b.width and \
-               object_a.y + object_a.height >= object_b.y and object_a.y <= object_b.y + object_b.height
-
     def gravity(self):
         if self.movable and not self.grounded:
             self.y_velocity += 0.004
 
     def move(self, time):
         self.gravity()
+        self.grounded = False;
+
         self.x += self.x_velocity * time
         self.y += self.y_velocity * time
 

@@ -22,15 +22,33 @@ game_objects = [
     ),
 
     GameObject(
-        x = 128, y = SCREEN_HEIGHT - 128, z = 1,
+        x = 192, y = SCREEN_HEIGHT - 224, z = 1,
+        height = 64, width = 64,
+        movable=False
+    ),
+
+    GameObject(
+        x=SCREEN_WIDTH - 128, y=SCREEN_HEIGHT - 1 * 128, z=1,
+        height=64, width=64,
+        movable=False
+    ),
+
+    GameObject(
+        x = SCREEN_WIDTH - 128, y = SCREEN_HEIGHT - 1.5 * 128, z = 1,
         height = 64, width = 64,
         movable = False
     ),
 
     GameObject(
-        x = SCREEN_WIDTH - 128, y = SCREEN_HEIGHT - 128, z = 1,
-        height = 64, width = 64,
-        movable = False
+        x=SCREEN_WIDTH - 128, y=SCREEN_HEIGHT - 2 * 128, z=1,
+        height=64, width=64,
+        movable=False
+    ),
+
+    GameObject(
+        x=SCREEN_WIDTH - 128, y=SCREEN_HEIGHT - 2.5 * 128, z=1,
+        height=64, width=64,
+        movable=False
     )
 ]
 
@@ -49,8 +67,7 @@ while True:
     #checking collision
     for object_a in game_objects:
         for object_b in game_objects:
-            if GameObject.collision(object_a, object_b):
-                GameObject.handle_collision(object_a, object_b)
+            GameObject.handle_collision(object_a, object_b)
 
     #movement update
     time_dif = clock.tick_busy_loop()
